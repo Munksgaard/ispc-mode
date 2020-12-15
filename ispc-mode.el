@@ -52,7 +52,7 @@
   (regexp-opt '("programCount" "programIndex" "false" "true" "taskCount"
                 "taskCount0" "taskCount1" "taskCount3" "taskIndex" "taskIndex0"
                 "taskIndex1" "taskIndex2") 'words)
-  "Regexp for builtin ispc fucntions.")
+  "Regexp for builtin ispc functions.")
 
 (defvar ispc-constants-regexp
   (regexp-opt '("NULL") t)
