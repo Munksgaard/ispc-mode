@@ -74,7 +74,7 @@
 
 ;;;###autoload
 (define-derived-mode ispc-mode c-mode "ispc"
-  "Major mode for ispc program editing"
+  "Major mode for ispc program editing."
   (font-lock-add-keywords nil ispc-font-lock-keywords))
 
 ;;;###autoload
