@@ -1,4 +1,4 @@
-;;; ispc-mode.el --- Syntax coloring for ispc kernels
+;;; ispc-mode.el --- Syntax coloring for ispc programs -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2020 - Philip Munksgaard <philip@munksgaard.me>
 ;;
@@ -46,35 +46,35 @@
      "foreach_unique" "goto" "if" "in" "inline" "noinline" "__vectorcall"
      "launch" "print" "return" "sizeof" "soa" "static" "struct" "switch"
      "sync" "task" "typedef" "union" "while" "operator") 'words)
-  "Regexp for ispc keywords")
+  "Regexp for ispc keywords.")
 
 (defvar ispc-builtin-regexp
   (regexp-opt '("programCount" "programIndex" "false" "true" "taskCount"
                 "taskCount0" "taskCount1" "taskCount3" "taskIndex" "taskIndex0"
                 "taskIndex1" "taskIndex2") 'words)
-  "Regexp for builtin ispc fucntions")
+  "Regexp for builtin ispc fucntions.")
 
 (defvar ispc-constants-regexp
   (regexp-opt '("NULL") t)
-  "Regexp for builtin ispc constants")
+  "Regexp for builtin ispc constants.")
 
 (defvar ispc-types-regexp
   (regexp-opt '("export" "void" "bool" "int" "int8" "int16" "int32" "int64"
                 "double" "float" "unsigned" "signed" "varying" "uniform"
                 "size_t" "ptrdiff_t" "intptr_t" "uintptr_t" "const"
                 "uint" "uint8" "uint16" "uint32" "uint64") t)
-  "Regexp for ispc primitive types")
+  "Regexp for ispc primitive types.")
 
 (defvar ispc-font-lock-keywords
   `((,ispc-keywords-regexp . font-lock-keyword-face)
     (,ispc-types-regexp . font-lock-type-face)
     (,ispc-builtin-regexp . font-lock-builtin-face)
     (,ispc-constants-regexp . font-lock-constant-face))
-  "Font-lock for ispc keywords")
+  "Font-lock for ispc keywords.")
 
 ;;;###autoload
 (define-derived-mode ispc-mode c-mode "ispc"
-  "Major mode for ispc kernel editing"
+  "Major mode for ispc program editing"
   (font-lock-add-keywords nil ispc-font-lock-keywords))
 
 ;;;###autoload
